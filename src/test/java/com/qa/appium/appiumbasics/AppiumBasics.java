@@ -32,5 +32,6 @@ public class AppiumBasics extends BaseTest {
         driver.findElement(AppiumBy.androidUIAutomator("new UiSelector().className(\"android.widget.RelativeLayout\").instance(1)")).click();
         driver.findElement(AppiumBy.id("android:id/edit")).sendKeys("Preetam");
     }
-}
+
+  }
 
