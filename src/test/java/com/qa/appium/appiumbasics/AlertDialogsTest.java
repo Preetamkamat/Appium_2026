@@ -3,6 +3,7 @@ package com.qa.appium.appiumbasics;
 import com.qa.appium.base.BaseTest;
 import io.appium.java_client.AppiumBy;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -17,7 +18,6 @@ public class AlertDialogsTest extends BaseTest {
                 "Plloaso mako nuto siwuf cakso dodtos anr koop.", "Text is matching");
 //        driver.switchTo().alert().accept();
         driver.switchTo().alert().dismiss();
-        Thread.sleep(10000);
     }
 
     @Test
@@ -34,6 +34,16 @@ public class AlertDialogsTest extends BaseTest {
                 "Text is matching");
 //        driver.switchTo().alert().accept();
         driver.switchTo().alert().dismiss();
-        Thread.sleep(10000);
+    }
+
+    @Test
+    public void alertPopUpRadioButton() throws InterruptedException {
+        driver.findElement(AppiumBy.accessibilityId("App")).click();
+        driver.findElement(AppiumBy.accessibilityId("Alert Dialogs")).click();
+        driver.findElement(AppiumBy.accessibilityId("Single choice list")).click();
+        WebElement radioButton = driver.findElement(By.xpath("//android.widget.CheckedTextView[@resource-id=\"android:id/text1\" and @text=\"Satellite\"]\n"));
+        radioButton.click();
+        Thread.sleep(4000);
+        Assert.assertFalse(radioButton.isSelected());
     }
 }
