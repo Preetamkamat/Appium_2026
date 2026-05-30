@@ -16,6 +16,7 @@ import org.testng.annotations.BeforeClass;
 
 import java.io.File;
 import java.time.Duration;
+import java.util.Map;
 
 public class BaseTest {
     public AppiumDriverLocalService service;
@@ -75,6 +76,12 @@ public class BaseTest {
         ((JavascriptExecutor) driver).executeScript("mobile: dragGesture", ImmutableMap.of(
                 "elementId", ((RemoteWebElement) elementId).getId(),
                 "endX", x, "endY", y
+        ));
+    }
+
+    public void startActivityApp(String activity) {
+        driver.executeScript("mobile: startActivity", Map.of(
+                "intent", activity
         ));
     }
 
